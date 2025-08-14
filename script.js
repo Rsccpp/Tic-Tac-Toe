@@ -126,7 +126,7 @@ function compare(targetArr){
           disable();
      } 
 
-     
+
      if (res == false && (xSeq.length == 4 && oSeq.length == 5) || (oSeq.length == 4 && xSeq.length == 5)) {
           h2.innerText = "It's a tie!";
           h3.innerText = "Restart the game";
