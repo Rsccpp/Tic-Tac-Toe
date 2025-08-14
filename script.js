@@ -43,7 +43,7 @@ function startGame(turnO){
      box.addEventListener("click", (event)=> {
           // To check which btn is clicked
           let x = event.target.id;
-          console.log(x);
+          // console.log(x);
 
           if(turnO == true){
                box.textContent = "X";
@@ -84,12 +84,12 @@ rstbtn.addEventListener("click", function()  {
 function addSeq(type, value){
      if(type == "x"){
          xSeq.push(value);
-         console.log("x=", xSeq);
+     //     console.log("x=", xSeq);
          check();
          
      } else {
           oSeq.push(value);
-          console.log("o=",oSeq)
+          // console.log("o=",oSeq)
           check();
      }
     
@@ -99,11 +99,11 @@ function addSeq(type, value){
 function check(){
      if(xSeq.length >= 3){
         compare(xSeq);
-        console.log("x checked");
+     //    console.log("x checked");
      }
      if(oSeq.length >= 3){
           compare(oSeq);
-          console.log("o checked");
+          // console.log("o checked");
      }
 }
 
@@ -120,18 +120,17 @@ function compare(targetArr){
           h2.innerText = "X wins!";
           h3.innerText = "Restart the game";
           disable();
-     } 
-     
-     if(res == true && targetArr == oSeq){
+     } else if(res == true && targetArr == oSeq){
           h2.innerText = "O wins!"
           h3.innerText = "Restart the game";
           disable();
-     }
+     } 
 
-     if(res == false && (xSeq.length == 4 && oSeq.length == 5) || (oSeq.length == 4 && xSeq.length == 5)){
-          
-          h3.innerHTML = `Match draw <br> Restart the game`;
-          disable();
+     
+     if (res == false && (xSeq.length == 4 && oSeq.length == 5) || (oSeq.length == 4 && xSeq.length == 5)) {
+          h2.innerText = "It's a tie!";
+          h3.innerText = "Restart the game";
+          disable();    
      }
 }
 
